@@ -94,7 +94,9 @@ public class Nematode {
         float x = wormies.width / 2;
 
         //Displays name of nematoad
-        wormies.text(name, x-10, y - 100);
+        wormies.text(name, x - 10, y - 100);
+        wormies.textAlign(wormies.CENTER, wormies.CENTER);
+        wormies.textSize(20);
 
 
         wormies.stroke(255);
@@ -103,7 +105,7 @@ public class Nematode {
         //Makes the body of the dude
         for (int i = 0; i < length; i++)
         {
-            tempy = y + (i*40);
+            tempy = y + (i * 40);
             wormies.circle(x, tempy, 40);
             //Make toes
             if (limbs > 0)
@@ -114,12 +116,28 @@ public class Nematode {
         }
 
         //Make eyes
-        if ( eyes > 0)
+        if (isEyes() == 1)
         {
-            wormies.line(x-15, y-15, x-30, y-30);
-            wormies.line(x+15, y-15, x+30, y-30);
-            wormies.circle(x-32, y-32, 5);
-            wormies.circle(x+32, y-32, 5);
+            wormies.line(x - 15, y - 15, x - 30, y - 30);
+            wormies.line(x + 15, y - 15, x + 30, y - 30);
+            wormies.circle(x - 32, y - 32, 5);
+            wormies.circle(x + 32, y - 32, 5);
+        }
+
+        //Gender circles
+        if (gender.contains("m")) {
+            wormies.line(x, tempy + 20, x, tempy+ 40);
+            wormies.circle(x, tempy + 44, 5);
+        }
+
+        if (gender.contains("f")) {
+            wormies.circle(x, tempy, 20);
+        }
+
+        if (gender.contains("h")) {
+            wormies.line(x, tempy + 20, x, tempy + 40);
+            wormies.circle(x, tempy + 44, 5);
+            wormies.circle(x, tempy, 20);
         }
 
     }
