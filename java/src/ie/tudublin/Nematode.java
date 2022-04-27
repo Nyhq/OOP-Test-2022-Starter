@@ -100,6 +100,13 @@ public class Nematode {
         wormies.stroke(255);
         wormies.noFill();
 
+        //Makes the body of the dude
+        for (int i = 0; i < length; i++)
+        {
+            tempy = y + (i*40);
+            wormies.circle(x, tempy, 40);
+            
+        }
 
     }
 
