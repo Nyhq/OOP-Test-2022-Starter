@@ -8,18 +8,19 @@ import processing.data.TableRow;
 public class Nematode {
 
     private String name;
-    private float length;
-    private boolean limbs;
+    private Integer length;
+    private Integer limbs;
     private String gender;
-    private boolean eyes;
+    private Integer eyes;
+    private float tempy;
 
-    public Nematode(TableRow tr) {
-        this(
-                tr.getString("name"),
-                tr.getFloat("length"),
-                tr.getInt("limbs") == 1,
-                tr.getString("gender"),
-                tr.getInt("eyes") == 1);
+    public Nematode(TableRow r) 
+    {
+        this(r.getString("name"), 
+        r.getInt("length"), 
+        r.getInt("limbs"), 
+        r.getString("gender"), 
+        r.getInt("eyes"));
     }
     
 
@@ -29,7 +30,7 @@ public class Nematode {
                 + name + "]";
     }
 
-    public Nematode(String name, float length, boolean limbs, String gender, boolean eyes) {
+    public Nematode(String name, Integer length, Integer limbs, String gender, Integer eyes) {
         this.name = name;
         this.length = length;
         this.limbs = limbs;
@@ -53,17 +54,17 @@ public class Nematode {
     }
 
 
-    public void setLength(float length) {
+    public void setLength(Integer length) {
         this.length = length;
     }
 
 
-    public boolean isLimbs() {
+    public Integer isLimbs() {
         return limbs;
     }
 
 
-    public void setLimbs(boolean limbs) {
+    public void setLimbs(Integer limbs) {
         this.limbs = limbs;
     }
 
@@ -78,16 +79,29 @@ public class Nematode {
     }
 
 
-    public boolean isEyes() {
+    public Integer isEyes() {
         return eyes;
     }
 
 
-    public void setEyes(boolean eyes) {
+    public void setEyes(Integer eyes) {
         this.eyes = eyes;
     }
   
+    public void render(NematodeVisualiser wormies){
+        
+        float y = wormies.height / 4;
+        float x = wormies.width / 2;
 
+        //Displays name of nematoad
+        wormies.text(name, x-10, y - 100);
+
+
+        wormies.stroke(255);
+        wormies.noFill();
+
+
+    }
 
 
     

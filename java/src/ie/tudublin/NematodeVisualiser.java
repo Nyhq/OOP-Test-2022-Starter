@@ -11,6 +11,8 @@ public class NematodeVisualiser extends PApplet
 
 	ArrayList<Nematode> nematode = new ArrayList<Nematode>();
 
+	public int currentWorm = 0;
+
 	void printNematodes(){
 		for(Nematode n:nematode)
         {
@@ -18,12 +20,27 @@ public class NematodeVisualiser extends PApplet
         }
 	}
 
-	public void keyPressed()
-	{		
-		if (keyCode == LEFT)
-		{
-		}		
-	}
+	
+    public void keyPressed()
+    {
+        if (keyCode == LEFT)
+        {
+            currentWorm-=1;
+            if (currentWorm==-1)
+            {
+                currentWorm=12;
+            }
+        }
+
+        if (keyCode == RIGHT)
+        {
+            currentWorm+=1;
+            if (currentWorm==13)
+            {
+                currentWorm=0;
+            }
+        }
+    }
 
 
 	public void settings()
@@ -37,7 +54,8 @@ public class NematodeVisualiser extends PApplet
 		background(0);
 		smooth();	
 		loadNematodes();
-		printNematodes();			
+		printNematodes();	
+		drawNematodes();		
 	}
 	
 
@@ -51,8 +69,10 @@ public class NematodeVisualiser extends PApplet
 	}
 
 
-	public void draw()
+	public void drawNematodes()
 	{	
+		background(0);
+		nematode.get(currentWorm).render(this);
 	}
 
 
