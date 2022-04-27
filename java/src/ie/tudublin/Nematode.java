@@ -105,7 +105,12 @@ public class Nematode {
         {
             tempy = y + (i*40);
             wormies.circle(x, tempy, 40);
-            
+            //Make toes
+            if (limbs > 0)
+            {
+                wormies.line( x + 40 , tempy, x + 20 , tempy);
+                wormies.line( x - 40 , tempy , x - 20 , tempy);
+            }
         }
 
         //Make eyes
