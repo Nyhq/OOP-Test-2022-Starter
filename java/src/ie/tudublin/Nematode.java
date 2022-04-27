@@ -116,8 +116,10 @@ public class Nematode {
         //Make eyes
         if ( eyes > 0)
         {
-            wormies.line(x, tempy + 20, x, tempy + 40);
-            wormies.circle(x, tempy + 44, 5);
+            wormies.line(x-15, y-15, x-30, y-30);
+            wormies.line(x+15, y-15, x+30, y-30);
+            wormies.circle(x-32, y-32, 5);
+            wormies.circle(x+32, y-32, 5);
         }
 
     }
